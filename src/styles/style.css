@@ -58,7 +58,7 @@ header {
 main {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: 10rem 1fr 11rem;
   max-width: 91.2rem;
   margin: 0 auto;
   column-gap: 2.4rem;
@@ -82,6 +82,9 @@ main {
   }
 
   & .fidelity {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
     grid-row: 1/3;
     grid-column: 2/3;
     padding-inline: 3.2rem;
@@ -91,9 +94,10 @@ main {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 1.6rem;
-
+      
       & .checks {
         background-color: var(--base-gray-200);
+        border-radius: 2rem;
       }
     }
   }

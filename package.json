@@ -1,0 +1,12 @@
+{
+  "name": "Member Club",
+  "description": "Aplicação web responsiva de um Cartão fidelidade",
+  "author": "Felipe Frizzo",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3333"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "json-server": "^1.0.0-alpha.21"
+  }
+}

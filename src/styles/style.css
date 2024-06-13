@@ -66,12 +66,45 @@ main {
 
   & .profile, & .history, & .fidelity, & .remaining-cuts {
     background-color: var(--base-gray-100);
+    border-radius: 1.6rem;
   }
 
   & .profile {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     padding: 1.6rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    & .profile-gradient {
+      position: relative;
+      padding: .12rem;
+
+      &::before {
+        content: "";
+        background: linear-gradient(90deg, #2DAA6E 0%, #2DAAAA 33.33%, #856CCF 66.67%, #D658B3 100%);
+        position: absolute;
+        inset: 0;
+        border-radius: 1.0rem;
+        z-index: 0;
+      };
+
+    }
+
+    & .profile-info {
+      & h1 {
+        font-size: var(--fs-h1-sm);
+        color: var(--base-gray-600);
+        font-weight: var(--fw-bold);
+      }
+
+      & p {
+        font-size: var(--fs-p-xs);
+        color: var(--base-gray-500);
+      }
+    }
   }
 
   & .history {

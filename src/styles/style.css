@@ -50,6 +50,9 @@ header {
       & img {
         background-color: transparent;
         filter: invert(100%) sepia(100%) saturate(21%) hue-rotate(23deg) brightness(106%) contrast(105%);
+        width: 2rem;
+        height: 2rem;
+        margin: 0 auto;
       }
     }
   }

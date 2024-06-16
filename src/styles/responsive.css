@@ -1,0 +1,97 @@
+@media (width <= 37.5rem) {
+  body {
+    padding: 3.2rem 1.2rem 1.5rem;
+
+    & header {
+      gap: 1.6rem;
+      max-width: fit-content;
+      padding-block: 0 2rem;
+
+      & .input-wrapper {
+        & input {
+          width: 35.1rem;
+        }
+      }
+    }
+
+    & main {
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+
+      & .profile {
+        order: 1;
+      }
+
+      & .history {
+        order: 4;
+      }
+
+      & .fidelity {
+        order: 2;
+        padding: 2.4rem 2rem 2rem;
+        gap: 2rem;
+
+        & .header-fidelity {
+          gap: 1.6rem;
+
+          & .fidelity-info {
+            width: 17rem;
+            & p {
+              font-size: var(--fs-p-xs)
+            }
+          }
+
+          & .id {
+            padding-inline: .8rem;
+            padding-block: .35rem;
+            height: 2.4rem;
+
+            & p {
+              font-size: var(--fs-h2-sm);
+            }
+          }
+        }
+
+        & .checks-container {
+          gap: .8rem;
+          & .checks {
+            width: 5.6rem;
+            height: 5.6rem;
+            & img {
+              width: 4rem;
+              height: 4rem;
+            }
+          }
+
+          & .checks:last-child img{
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+        }
+      }
+
+      & .remaining-cuts {
+        padding: 1.6rem 2rem;
+        order: 3;
+
+        & .remaining-cuts-info {
+          & .progress {
+            & .standard-bar {
+              width: 18rem;
+
+              & .colored-bar {
+                width: calc(18rem - 30%);
+              }
+            }
+          }
+        }
+
+        & .gift {
+          width: 5.6rem;
+          height: 5.6rem;
+        }
+      }
+    }
+  }
+}

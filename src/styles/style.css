@@ -302,12 +302,12 @@ main {
         margin-top: 1.2rem;
 
         & .standard-bar, & .colored-bar {
-          width: 35rem;
           height: 1rem;
           border-radius: 3rem;
         }
-
+        
         & .standard-bar {
+          width: 35rem;
           background-color: var(--base-gray-300);
 
           & .colored-bar {

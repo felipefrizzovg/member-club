@@ -1,16 +1,26 @@
-import { getClient } from "../services/getClient.js";
+import { checkID } from "../services/checkID.js";
 
-const input = document.querySelector('.input-wrapper input')
+const form = document.querySelector('form');
+const input = document.querySelector('#input')
 
 // formata o numero que o usuario colocar no input
   input.addEventListener('input', (e) => {
-    e.preventDefault();
-  
     const formattedValue = mask(e.target.value)
   
     e.target.value = formattedValue
+  })
 
-    getClient(e.target.value)
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const checked = await checkID(input.value)
+
+    console.log(checked)
+
+    if (checked === undefined) {
+      alert("Esse ID é inválido")
+    } else {
+      alert("Esse ID é válido")
+    }
   })
 
 const mask = (value) => {

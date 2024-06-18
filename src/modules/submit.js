@@ -1,23 +1,17 @@
-import { getClient } from "../services/getClient";
+import { getClient } from "../services/getClient.js";
 
 const input = document.querySelector('.input-wrapper input')
 
 // formata o numero que o usuario colocar no input
-export function getId() {
   input.addEventListener('input', (e) => {
     e.preventDefault();
   
-    const inputValue = e.target.value;
-  
-    const formattedValue = mask(inputValue)
+    const formattedValue = mask(e.target.value)
   
     e.target.value = formattedValue
 
-    getClient(formattedValue)
+    getClient(e.target.value)
   })
-
-
-}
 
 const mask = (value) => {
   return value.replace(/\D/g, '').replace(/(\d{3})(\d)/, '$1-$2')

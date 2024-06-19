@@ -349,7 +349,7 @@ main {
 
 .modal {
   position: fixed;
-  display: flex;
+  display: none;
   z-index: 2;
   align-items: center;
   justify-content: center;

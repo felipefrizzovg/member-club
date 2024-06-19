@@ -90,6 +90,19 @@ main {
     align-items: center;
     gap: 1.6rem;
 
+    & .profile-img {
+      width: 5.6rem;
+      height: 5.6rem;
+      background-size: cover;
+      overflow: hidden;
+
+      & img {
+        background-size: cover;
+        border-radius: 1rem;
+        padding: .2rem;
+      }
+    }
+
     & .profile-gradient {
       position: relative;
       padding: .12rem;

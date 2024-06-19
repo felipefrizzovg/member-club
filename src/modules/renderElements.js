@@ -1,6 +1,7 @@
 import { checkID } from "../services/checkID.js"
 
 // Profile
+const profileImg = document.querySelector('.profile-img')
 const clientName = document.querySelector('.profile-info h1')
 const clientSince = document.querySelector('.profile-info p')
 
@@ -15,15 +16,24 @@ const checksDiv = document.querySelectorAll('.checks')
 // Remaining Cuts
 const numberOfCutsRemaining = document.querySelector('.remaining-cuts-info h2 strong')
 const totalCuts = document.querySelector('.progress p')
-const coloredBar = document.querySelector('.colored-bar')
+const standardBar = document.querySelector('.standard-bar')
 
 
 export function renderElements(element) {
   // Resetting elements
   historyInfo.innerHTML = ''
   checksDiv.forEach((e) => e.innerHTML = '')
+  // fidelityId.innerHTML = 'ID: '
 
   // Rendering Profile Information
+  if (element.name === "Natália Miranda") {
+    profileImg.innerHTML = `<img src="./src/assets/nataliaMiranda.png" alt="Foto de perfil">`
+  } else if (element.name === "Capitão Nascimento") {
+    profileImg.innerHTML = `<img src="./src/assets/capNascimento.jpg" alt="Foto de perfil"></img>`
+  } else {
+    profileImg.innerHTML = `<img src="./src/assets/sansao.jpg" alt="Foto de perfil">`
+  }
+
   clientName.innerHTML = `${element.name}`
   clientSince.innerHTML = `Cliente desde ${element.clientSince}`
 
@@ -48,12 +58,29 @@ export function renderElements(element) {
   })
 
   // Rendering fidelity information
+
+  // Showing ID
+  fidelityId.innerHTML = `ID: ${element.id}`
+
+  // How many checks will there be
   const totalFidelity = element.loyaltyCard.totalCuts
   for (let i = 0; i < totalFidelity; i++) {
     checksDiv[i].innerHTML = `<img src="./src/assets/PinCheck.png">`
   }
 
   // checksDiv[9].innerHTML
+
+
+  // Remaining cuts
+  numberOfCutsRemaining.innerHTML = `${element.loyaltyCard.cutsRemaining}`
+  totalCuts.innerHTML = `${element.loyaltyCard.totalCuts} de ${element.loyaltyCard.cutsNeeded}`
+
+  const coloredBar = document.createElement('div')
+  coloredBar.setAttribute('class', 'colored-bar')
+  const width = (element.cutsNeeded * 10 - element.cutsRemaining * 10)
+  coloredBar.style.width = `${width}%`
+
+  standardBar.append(coloredBar)
 }
 
 

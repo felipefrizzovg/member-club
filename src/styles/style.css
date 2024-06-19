@@ -280,7 +280,7 @@ main {
         }
       }
 
-      & .checks:last-child img {
+      & .checks:last-child img[src="./src/assets/icons/Gift-Solid.svg"] {
         width: 4rem;
         height: 4rem;
         filter: invert(47%) sepia(6%) saturate(448%) hue-rotate(274deg) brightness(88%) contrast(84%);
@@ -344,5 +344,105 @@ main {
       border-radius: 4rem;
       padding: .5rem;
     }
+  }
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+  overflow: hidden;
+  
+  text-align: left;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 59rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+}
+
+.div_image_v {
+  background: #47c9a2;
+  border-bottom: none;
+  position: relative;
+  text-align: center;
+  margin: -20px -20px 0;
+  border-radius: 5px 5px 0 0;
+  padding: 3.5rem;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e2feee;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  animation: animate .6s linear alternate-reverse infinite;
+  transition: .6s ease;
+}
+
+.image svg {
+  color: #0afa2a;
+  width: 2rem;
+  height: 2rem;
+}
+
+.content {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.title {
+  color: #066e29;
+  font-size: var(--fs-h1-sm);
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.message {
+  margin-top: 0.5rem;
+  color: #595b5f;
+  font-size: var(--fs-p-md);
+  line-height: 1.25rem;
+}
+
+@keyframes animate {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.09);
   }
 }

@@ -280,7 +280,7 @@ main {
         }
       }
 
-      & .checks:nth-child(10) img {
+      & .checks:last-child img {
         width: 4rem;
         height: 4rem;
         filter: invert(47%) sepia(6%) saturate(448%) hue-rotate(274deg) brightness(88%) contrast(84%);
@@ -325,7 +325,7 @@ main {
           background-color: var(--base-gray-300);
 
           & .colored-bar {
-            width: calc(35rem - 30%);
+            width: 0;
             background: linear-gradient(90deg, #2DAA6E 0%, #2DAAAA 33.33%, #856CCF 66.67%, #D658B3 100%);
           }
         }

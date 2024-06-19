@@ -12,17 +12,19 @@ const historyInfo = document.querySelector('.history-info')
 // Fidelity
 const fidelityId = document.querySelector('.id p')
 const checksDiv = document.querySelectorAll('.checks')
+const checksContainer = document.querySelector('.checks-container')
 
 // Remaining Cuts
 const numberOfCutsRemaining = document.querySelector('.remaining-cuts-info h2 strong')
 const totalCuts = document.querySelector('.progress p')
 const standardBar = document.querySelector('.standard-bar')
+const coloredBar = document.querySelector('.colored-bar')
 
 
 export function renderElements(element) {
   // Resetting elements
   historyInfo.innerHTML = ''
-  checksDiv.forEach((e) => e.innerHTML = '')
+  checksContainer.innerHTML = ''
   // fidelityId.innerHTML = 'ID: '
 
   // Rendering Profile Information
@@ -58,29 +60,37 @@ export function renderElements(element) {
   })
 
   // Rendering fidelity information
-
   // Showing ID
   fidelityId.innerHTML = `ID: ${element.id}`
 
   // How many checks will there be
   const totalFidelity = element.loyaltyCard.totalCuts
-  for (let i = 0; i < totalFidelity; i++) {
-    checksDiv[i].innerHTML = `<img src="./src/assets/PinCheck.png">`
+  // for (let i = 0; i < totalFidelity; i++) {
+  //   checksDiv[i].innerHTML = `<img src="./src/assets/PinCheck.png">`
+  // }
+
+  // checksDiv[element.loyaltyCard.cutsNeeded - 1].innerHTML = `<img src="./src/assets/icons/Gift-Solid.svg">`
+
+  // Letting number of containers be fluid
+  for (let i = 0; i < element.loyaltyCard.cutsNeeded; i++) {
+    if(i < totalFidelity) {
+      checksContainer.innerHTML += `<div class="checks"><img src="./src/assets/PinCheck.png"></div>`
+    } else if (element.loyaltyCard.cutsNeeded - 1 === i) {
+      checksContainer.innerHTML += `<div class="checks"><img src="./src/assets/icons/Gift-Solid.svg"></div>`
+    } else {
+      checksContainer.innerHTML += `<div class="checks"></div>`
+    }
+
+    
   }
-
-  // checksDiv[9].innerHTML
-
+  checksDiv[element.loyaltyCard.cutsNeeded - 1].innerHTML = `<img src="./src/assets/icons/Gift-Solid.svg">`
 
   // Remaining cuts
   numberOfCutsRemaining.innerHTML = `${element.loyaltyCard.cutsRemaining}`
   totalCuts.innerHTML = `${element.loyaltyCard.totalCuts} de ${element.loyaltyCard.cutsNeeded}`
 
-  const coloredBar = document.createElement('div')
-  coloredBar.setAttribute('class', 'colored-bar')
-  const width = (element.cutsNeeded * 10 - element.cutsRemaining * 10)
+  const width = (element.loyaltyCard.cutsNeeded * 10 - element.loyaltyCard.cutsRemaining * 10)
   coloredBar.style.width = `${width}%`
-
-  standardBar.append(coloredBar)
 }
 
 

@@ -20,6 +20,10 @@ const totalCuts = document.querySelector('.progress p')
 const standardBar = document.querySelector('.standard-bar')
 const coloredBar = document.querySelector('.colored-bar')
 
+// Modal
+const modal = document.querySelector('.modal')
+const closeModal = document.querySelector('.close')
+
 
 export function renderElements(element) {
   // Resetting elements
@@ -91,6 +95,22 @@ export function renderElements(element) {
 
   const width = (element.loyaltyCard.cutsNeeded * 10 - element.loyaltyCard.cutsRemaining * 10)
   coloredBar.style.width = `${width}%`
+
+
+  // Making modal
+  if (element.loyaltyCard.totalCuts === element.loyaltyCard.cutsNeeded) {
+    modal.style.display = 'flex'
+  }
+
+  // Closing modal
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none'
+  })
+
+  // Closing modal on click outside
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none'
+    }
+  })
 }
-
-
